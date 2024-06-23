@@ -1,0 +1,14 @@
+#canvas {
+  display: block;
+  /* background-color: #f2f2f2; */
+  background-color: black;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  margin: 0;
+}
