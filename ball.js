@@ -1,6 +1,6 @@
 const canvas = document.querySelector("#canvas");
-canvas.width = window.innerWidth - 1;
-canvas.height = window.innerHeight - 1;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 const ctx = canvas.getContext("2d");
 const balls = [];
@@ -49,13 +49,22 @@ canvas.addEventListener("click", (evt) => {
 });
 
 window.addEventListener("resize", (e) => {
-  console.log("Resize ");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
 
+const textColor = Ball.getRandomColor();
 function moveBalls() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (balls.length == 0) {
+    ctx.font = "bold italic 50px Arial";
+    ctx.fillStyle = textColor;
+    ctx.fillText(
+      "Click to Add Balls",
+      canvas.width / 2 - 200,
+      canvas.height / 2 - 15
+    );
+  }
   balls.map((ball) => {
     ball.update();
     ball.draw();
